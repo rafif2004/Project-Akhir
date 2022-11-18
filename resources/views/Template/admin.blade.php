@@ -3,7 +3,7 @@
 
 <head>
     <title>SB Admin 2 @yield('title')</title>
-    @include('master.head')
+    @include('Template.head')
 </head>
 
 <body id="page-top">
@@ -12,7 +12,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('master.sidebar')
+        @include('Template.sidebar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -22,7 +22,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                @include('master.topbar')
+                @include('Template.topbar')
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -38,7 +38,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            @include('master.footer')
+            @include('Template.footer')
             <!-- End of Footer -->
 
         </div>
@@ -48,7 +48,7 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    @include('master.script')
+    @include('Template.script')
 
 </body>
 </html>

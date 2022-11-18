@@ -16,7 +16,6 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
     <!-- Custom styles for this template-->
     <link href="template/css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -25,7 +24,6 @@
 <body class="bg-gradient-primary">
 
     <div class="container">
-
         <!-- Outer Row -->
         <div class="row justify-content-center">
 
@@ -35,16 +33,17 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                            </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4" style="color: #111; font-weight: 600;">LOGIN GURU</h1>
+                                        <h1 class="h4 text-gray-900 mb-4" style="color: #111; font-weight: 600;">LOGIN</h1>
                                     </div>
                                     <form class="user">
                                         <div class="form-group">
-                                            <input type="name" class="form-control form-control-user"
-                                                id="exampleInputName" aria-describedby="NameHelp"
+                                            <input type="email" class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Username">
                                         </div>
                                         <div class="form-group">
@@ -58,9 +57,8 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">Login</a>  
-                                        <br>
-                                        <p class="login-register-text" style="color: #111; font-weight: 600;">Login Untuk Murid <a href="/LoginMurid">Log In</a></p>  
+                                        <a href="/Dashboard" class="btn btn-primary btn-user btn-block">Login</a> 
+                                        <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/Register" class="fw-bold text-body"><u>Register here</u></a></p>  
                                     </form>
                                 </div>
                             </div>
@@ -70,7 +68,6 @@
             </div>
         </div>
     </div>
-
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

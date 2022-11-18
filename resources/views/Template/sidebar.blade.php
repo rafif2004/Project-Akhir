@@ -6,7 +6,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Laravel</div>
+                <div class="sidebar-brand-text mx-3">Literasi</div>
             </a>
 
             <!-- Divider -->
@@ -14,28 +14,23 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="/dashboard">
+                <a class="nav-link" href="/Dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
-            <li class="nav-item">
-                <a class="nav-link" href="/mastersiswa">
-                <i class="fas fa-fw fa-user"></i>
-                    <span>Master Siswa</span></a>
-            </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/masterproject">
+                <a class="nav-link" href="/Baca">
                     <i class="fas fa-fw fa-book"></i>
-                    <span>Master Project</span></a>
+                    <span>Baca</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/masterkontak">
+                <a class="nav-link" href="/Riwayat">
                     <i class="fas fa-fw fa-address-card"></i>
-                    <span>Master Kontak</span></a>
+                    <span>Riwayat</span></a>
             </li>
 
             <!-- Heading -->

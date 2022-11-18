@@ -15,15 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('Login.Murid');
+    return view('Login.Login');
 });
-Route::get('/LoginGuru', function () {
-    return view('login.Guru');
+Route::get('/Register', function () {
+    return view('Login.Register');
 });
-Route::get('/LoginMurid', function () {
-    return view('login.Murid');
+Route::get('/Login', function () {
+    return view('Login.Login');
 });
-Route::get('/master', function () {
-    return view('master.masterproject');
+Route::get('/Dashboard', function () {
+    return view('Master.Dashboard');
 });
-
+Route::get('/Baca', function () {
+    return view('Master.Baca');
+});
+Route::get('/Riwayat', function () {
+    return view('Master.Riwayat');
+});
