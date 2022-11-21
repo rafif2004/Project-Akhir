@@ -16,7 +16,7 @@
                     <tr>
                         <th scope="col">NO</th>
                         <th scope="col">NAMA</th>
-                        <th scope="col">BUKU</th>
+                        <th scope="col">JUDUL BUKU</th>
                         <th scope="col">PENGARANG</th>
                         <th scope="col">EDIT</th>
                     </tr>
