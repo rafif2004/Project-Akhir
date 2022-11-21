@@ -12,6 +12,6 @@ class bacaan extends Model
     
     public function bacaan()
     {
-        return $this->belongsTo(wali_kelas::class, 'id_guru');
+        return $this->belongsTo(User::class, 'id_user');
     }
 }

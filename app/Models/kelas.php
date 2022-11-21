@@ -12,6 +12,10 @@ class kelas extends Model
 
     public function kelas()
     {
+        return $this->hasOne(kelas::class, 'id');
+    }
+    public function  wali_kelas()
+    {
         return $this->belongsTo(wali_kelas::class, 'id_guru');
     }
 }
