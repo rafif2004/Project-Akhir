@@ -10,9 +10,9 @@ class kelas extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function kelas()
+    public function siswa()
     {
-        return $this->hasOne(kelas::class, 'id');
+        return $this->hasOne(siswa::class, 'id');
     }
     public function  wali_kelas()
     {

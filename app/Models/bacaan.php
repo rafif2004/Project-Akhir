@@ -10,8 +10,8 @@ class bacaan extends Model
     use HasFactory;
     protected $guarded = ['id'];
     
-    public function bacaan()
+    public function siswa()
     {
-        return $this->belongsTo(User::class, 'id_user');
+        return $this->belongsTo(siswa::class, 'id_siswa');
     }
 }

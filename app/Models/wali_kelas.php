@@ -10,11 +10,11 @@ class wali_kelas extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function wali_kelas()
+    public function kelas()
     {
-        return $this->hasOne(wali_kelas::class, 'id');
+        return $this->hasOne(kelas::class, 'id');
     }
-    public function user()
+    public function User()
     {
         return $this->belongsTo(User::class, 'id_user');
     }
