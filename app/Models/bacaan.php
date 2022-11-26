@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class bacaan extends Model
 {
-    use HasFactory;
+    use HasFactory;  
     protected $guarded = ['id'];
     
     public function siswa()
