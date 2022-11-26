@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use App\Models\bacaan;
 
 class baca_Controller extends Controller
 {
@@ -23,7 +24,7 @@ class baca_Controller extends Controller
      */
     public function create()
     {
-        //
+        return view('master.baca');
     }
 
     /**
@@ -34,7 +35,33 @@ class baca_Controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $message=[
+            'required'=>':attribute harus di isi yaa...',
+            'min'=>':attribute minimal :min karakter ya...',
+            'max'=>':attribute maksimal :max karakter ya...',
+            'numeric'=>':attribut harus di isi angka'
+        ];
+
+        //validasi data
+        $this->validate($request,[
+            'judul_buku'=>'required',
+            'pengarang'=>'required',
+            'penerbit'=>'required',
+            'ringkasan'=>'required',
+            'tanggal_baca'=>'required'
+        ], $message); 
+
+        //insert data
+        bacaan::create([
+            'judul_buku'=> $request -> judul_buku,
+            'pengarang'=> $request -> pengarang,
+            'penerbit'=> $request -> penerbit,
+            'ringkasan'=> $request -> ringkasan,
+            'tanggal_baca'=> $request -> tanggal_baca
+        ]);
+
+        Session::flash('success', "Data Berhasil Di Tambahkan");
+        return redirect('/Baca');
     }
 
     /**

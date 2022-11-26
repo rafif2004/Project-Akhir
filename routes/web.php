@@ -36,5 +36,6 @@ use App\Http\Controllers\register_Controller;
 Route::resource('/', login_Controller::class);
 Route::resource('Register', register_Controller::class);
 Route::resource('Dashboard', Dashboard_Controller::class);
-Route::resource('Baca', baca_Controller::class);
 Route::resource('Riwayat', riwayat_Controller::class);
+
+Route::resource('Baca', baca_Controller::class);

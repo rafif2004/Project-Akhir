@@ -2,28 +2,37 @@
 @section('title', 'Baca')
 @section('content-title','Selamat Datang "Nama Murid"')
 @section('content')
-<form method="post" enctype="multipart/form-data" action="">
+@if (count($errors) > 0)
+<div class="alert alert-danger">
+    <ul>
+        @foreach($errors->all() as $item)
+        <li>{{ $item }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+<form method="post" enctype="multipart/form-data" action="{{ route('Baca.store') }}" >
     @csrf
     <input type="hidden" name="id_siswa" value="">
     <div class="form-group">
-        <label for="nama">JUDUL BUKU</label>
-        <input type="text" class="form-control" id="nama_project" name="nama_project" value="">
+        <label for="judul_buku">JUDUL BUKU</label>
+        <input type="text" class="form-control" id="judul_buku" name="judul_buku" value="">
     </div>
     <div class="form-group">
-        <label for="nama">PENGARANG</label>
-        <input type="text" class="form-control" id="nama_project" name="nama_project" value="">
+        <label for="pengarang">PENGARANG</label>
+        <input type="text" class="form-control" id="pengarang" name="pengarang" value="">
     </div>
     <div class="form-group">
-        <label for="nama">PENERBIT</label>
-        <input type="text" class="form-control" id="nama_project" name="nama_project" value="">
+        <label for="penerbit">PENERBIT</label>
+        <input type="text" class="form-control" id="penerbit" name="penerbit" value="">
     </div>
     <div class="form-group">
-        <label for="nama">RINGKASAN</label>
-        <textarea type="text" class="form-control" id="nama_project" name="nama_project" value=""></textarea>
+        <label for="ringkasan">RINGKASAN</label>
+        <textarea type="text" class="form-control" id="ringkasan" name="ringkasan" value=""></textarea>
     </div>
     <div class="form-group">
-        <label for="nama">TANGGAL BACA</label>
-        <input type="date" class="form-control" id="tanggl" name="tanggl" value="">
+        <label for="tanggal_baca">TANGGAL BACA</label>
+        <input type="date" class="form-control" id="tanggal_baca" name="tanggal_baca" value="">
     </div>
     <div class="form-group">
         <input type="submit" class="btn btn-success" value="simpan">
