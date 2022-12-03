@@ -182,10 +182,11 @@
                                 </a>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/LoginMurid">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
+                                <form class="" action="/logout" method="post">
+                                    @csrf
+                                    <button class="dropdown-item" type="submit"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout</button>
+                                </form>
                             </div>
                         </li>
 

@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\baca_Controller;
 use App\Http\Controllers\Dashboard_Controller;
 use App\Http\Controllers\riwayat_Controller;
-use App\Http\Controllers\login_Controller;
+use App\Http\Controllers\riwayatguru_Controller;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\register_Controller;
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +34,16 @@ use App\Http\Controllers\register_Controller;
 // Route::get('/Riwayat', function () {
 //     return view('Master.Riwayat');
 // });
-Route::resource('/', login_Controller::class);
-Route::resource('Register', register_Controller::class);
-Route::resource('Dashboard', Dashboard_Controller::class);
-Route::resource('Riwayat', riwayat_Controller::class);
 
-Route::resource('Baca', baca_Controller::class);
+Route::middleware('guest')->group(function(){
+    Route::get('/', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'authenticate']);
+});
+
+Route::middleware('auth')->group(function(){
+    Route::resource('dashboard', dashboard_Controller::class);
+    Route::resource('riwayat', riwayat_Controller::class);
+    Route::resource('riwayatguru', riwayatguru_Controller::class);
+    Route::resource('baca', baca_Controller::class);
+    Route::post('logout', [LoginController::class, 'logout']);
+});

@@ -1,7 +1,7 @@
 @extends('template.admin')
 @section('title', 'Riwayat')
 @section('content-title')
-<h2>Silakan Input Bacaan</h2>{{ auth()->user()->name }}
+<h2>riwayat guru</h2>{{ auth()->user()->name }}
 @endsection
 @section('content')
 <div class="row">

@@ -1,6 +1,10 @@
 @extends('template.admin')
 @section('title', 'Baca')
-@section('content-title','Selamat Datang "Nama Murid"')
+@section('content-title')
+<h2>Silakan Input Bacaan
+    {{ auth()->user()->name }}
+</h2><br>
+@endsection
 @section('content')
 @if (count($errors) > 0)
 <div class="alert alert-danger">
@@ -11,7 +15,7 @@
     </ul>
 </div>
 @endif
-<form method="post" enctype="multipart/form-data" action="{{ route('Baca.store') }}" >
+<form method="post" enctype="multipart/form-data" action="{{ route('baca.store') }}" >
     @csrf
     <input type="hidden" name="id_siswa" value="">
     <div class="form-group">

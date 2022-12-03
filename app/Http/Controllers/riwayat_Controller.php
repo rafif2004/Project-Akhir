@@ -13,7 +13,7 @@ class riwayat_Controller extends Controller
      */
     public function index()
     {
-        return view('master.Riwayat');
+        return view('master.riwayat');
     }
 
     /**

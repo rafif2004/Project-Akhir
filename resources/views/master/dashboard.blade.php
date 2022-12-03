@@ -1,6 +1,8 @@
 @extends('template.admin')
 @section('title', 'Dashboard')
-@section('content-title','Selamat Datang "Nama Murid"')
+@section('content-title')
+Selamat Datang {{ auth()->user()->name }}
+@endsection
 @section('content')
 <div class="row">
     <!-- Earnings (Monthly) Card Example -->

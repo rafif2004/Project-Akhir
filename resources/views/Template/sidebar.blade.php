@@ -14,23 +14,31 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="/Dashboard">
+                <a class="nav-link" href="/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                <span>Dashboard</span></a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <li class="nav-item">
-                <a class="nav-link" href="/Baca">
+                <a class="nav-link" href="/baca">
                     <i class="fas fa-fw fa-book"></i>
-                    <span>Baca</span></a>
+                <span>Baca</span></a>
             </li>
+            
+            {{-- @if (auth()->user()->role == 2) --}}
+            <li class="nav-item">
+                <a class="nav-link" href="/riwayat">
+                    <i class="fas fa-fw fa-address-card"></i>
+                <span>Riwayat</span></a>
+            </li>
+                {{-- @endif --}}
 
             <li class="nav-item">
-                <a class="nav-link" href="/Riwayat">
+                <a class="nav-link" href="/riwayatguru">
                     <i class="fas fa-fw fa-address-card"></i>
-                    <span>Riwayat</span></a>
+                <span>Riwayat Guru</span></a>
             </li>
 
             <!-- Heading -->
