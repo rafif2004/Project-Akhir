@@ -60,7 +60,7 @@ class baca_Controller extends Controller
             'tanggal_baca'=> $request -> tanggal_baca
         ]);
 
-        Session::flash('success', "Data Berhasil Di Tambahkan");
+        Session::flash('success', "Data Berhasil Di Tambahkan Silakan Check Di Riwayat");
         return redirect('/baca');
     }
 

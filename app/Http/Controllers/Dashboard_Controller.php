@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\bacaan;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class dashboard_Controller extends Controller
@@ -14,9 +15,10 @@ class dashboard_Controller extends Controller
      */
     public function index()
     {
+        $jumlah = bacaan::all()->count();
         $baca = bacaan::all();
-        // return $baca;
-        return view('master.dashboard', [
+        return view('master.dashboard' , compact('jumlah'), 
+        [
             'baca' => $baca
         ]);
     }
@@ -84,6 +86,9 @@ class dashboard_Controller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $bacaan=bacaan::find($id);
+        $bacaan->delete();
+        Session::flash('danger', "Data Berhasil Di Hapus");
+        return redirect('/dashboard');
     }
 }

@@ -5,7 +5,15 @@
     {{ auth()->user()->name }}
 </h2><br>
 @endsection
+{{-- Validasi Kalau Pesan Telah Terkirim --}}
 @section('content')
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+{{-- Pesan Kalau Di Isi Masi Kosong --}}
 @if (count($errors) > 0)
 <div class="alert alert-danger">
     <ul>
