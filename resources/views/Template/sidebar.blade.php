@@ -35,11 +35,13 @@
             </li>
                 {{-- @endif --}}
 
+           @if (auth()->user()->role == 1)
             <li class="nav-item">
                 <a class="nav-link" href="/riwayatguru">
                     <i class="fas fa-fw fa-address-card"></i>
                 <span>Riwayat Guru</span></a>
             </li>
+           @endif
 
             <!-- Heading -->
             <!-- <div class="sidebar-heading">

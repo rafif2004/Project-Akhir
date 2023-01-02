@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\bacaan;
 use Illuminate\Http\Request;
 
 class dashboard_Controller extends Controller
@@ -13,7 +14,11 @@ class dashboard_Controller extends Controller
      */
     public function index()
     {
-        return view('master.dashboard');
+        $baca = bacaan::all();
+        // return $baca;
+        return view('master.dashboard', [
+            'baca' => $baca
+        ]);
     }
 
     /**

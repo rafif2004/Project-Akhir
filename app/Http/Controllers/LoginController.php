@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     public function index (){
-        return view('Login.Login');
+        return view('Login.login');
     }
 
     public function authenticate (Request $request){

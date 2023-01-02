@@ -17,7 +17,7 @@ class baca_Controller extends Controller
         return view('master.baca');
     }
 
-    /**
+    /** 
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -61,7 +61,7 @@ class baca_Controller extends Controller
         ]);
 
         Session::flash('success', "Data Berhasil Di Tambahkan");
-        return redirect('/Baca');
+        return redirect('/baca');
     }
 
     /**

@@ -69,17 +69,15 @@
                                             </div>
                                         </div>
                                         <input type="submit" value="LOGIN" class="btn btn-primary btn-user btn-block">
+                                        <p class="text-center text-muted mt-4 mb-0"><a href="/register" class="fw-bold text-body"><u>Register here</u></a></p>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
     <!-- Bootstrap core JavaScript-->

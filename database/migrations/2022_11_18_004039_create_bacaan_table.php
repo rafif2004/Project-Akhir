@@ -20,10 +20,7 @@ return new class extends Migration
             $table->string('penerbit');
             $table->string('ringkasan');
             $table->date('tanggal_baca');
-            $table->bigInteger('id_siswa')->unsigned();
-            $table->foreign('id_siswa')->references('id')->on('siswa')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+           
             $table->timestamps();
         });
     }

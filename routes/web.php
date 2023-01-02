@@ -38,6 +38,7 @@ use App\Http\Controllers\register_Controller;
 Route::middleware('guest')->group(function(){
     Route::get('/', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'authenticate']);
+    Route::post('/register', [register_Controller::class, 'index'])->name('register');
 });
 
 Route::middleware('auth')->group(function(){

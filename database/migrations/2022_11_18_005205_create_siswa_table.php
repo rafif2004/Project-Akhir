@@ -26,6 +26,10 @@ return new class extends Migration
             $table->foreign('id_kelas')->references('id')->on('kelas')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+                $table->bigInteger('id_bacaan')->unsigned();
+                $table->foreign('id_bacaan')->references('id')->on('bacaan')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
             $table->timestamps();
         });
     }
