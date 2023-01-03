@@ -17,7 +17,7 @@ class dashboard_Controller extends Controller
     {
         $jumlah = bacaan::all()->count();
         $baca = bacaan::all();
-        return view('master.dashboard' , compact('jumlah'), 
+        return view('Master.dashboard.dashboard' , compact('jumlah'), 
         [
             'baca' => $baca
         ]);
@@ -63,7 +63,8 @@ class dashboard_Controller extends Controller
      */
     public function edit($id)
     {
-        //
+        $bacaan=bacaan::find($id);
+        return view ('Master.dashboard.dashboardedit', compact('bacaan'));
     }
 
     /**
@@ -75,7 +76,33 @@ class dashboard_Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $message=[
+            'required'=>':attribute harus di isi yaa...',
+            'min'=>':attribute minimal :min karakter ya...',
+            'max'=>':attribute maksimal :max karakter ya...',
+            'numeric'=>':attribut harus di isi angka'
+        ];
+
+        //validasi data
+        $this->validate($request,[
+            'judul_buku'=>'required',
+            'pengarang'=>'required',
+            'penerbit'=>'required',
+            'ringkasan'=>'required',
+            'tanggal_baca'=>'required'
+        ], $message); 
+
+        //insert data
+        $bacaan=bacaan::find($id);
+        $bacaan->judul_buku = $request ->judul_buku;
+        $bacaan->pengarang = $request ->pengarang;
+        $bacaan->penerbit = $request ->penerbit;
+        $bacaan->ringkasan = $request ->ringkasan;
+        $bacaan->tanggal_baca = $request ->tanggal_baca;
+        $bacaan->save();
+
+        Session::flash('success', "Data Berhasil Di Ubah");
+        return redirect('/dashboard');
     }
 
     /**
@@ -84,7 +111,21 @@ class dashboard_Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id)//HARUS PAKE FORM
+    {
+        // $bacaan=bacaan::find($id);
+        // $bacaan->delete();
+        // Session::flash('danger', "Data Berhasil Di Hapus");
+        // return redirect('/dashboard');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function hapus($id)
     {
         $bacaan=bacaan::find($id);
         $bacaan->delete();

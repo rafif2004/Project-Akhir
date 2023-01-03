@@ -47,5 +47,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('riwayatguru', riwayatguru_Controller::class);
     Route::resource('baca', baca_Controller::class);
     Route::post('logout', [LoginController::class, 'logout']);
-    Route::post('/dashboard/destroy/{id}', [dashboard_Controller::class, 'destroy']);
+    // Route::post('/dashboard/destroy/{id}', [dashboard_Controller::class, 'destroy']);
+    Route::get('/dashboard/hapus/{id}', [dashboard_Controller::class, 'hapus'])->name('dashboard.hapus');
+    Route::post('/dashboard/update/{id}', [dashboard_Controller::class, 'update'])->name('dashboard.edit');
 });
