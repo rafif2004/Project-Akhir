@@ -52,7 +52,11 @@ class dashboard_Controller extends Controller
      */
     public function show($id)
     {
-        //
+        $bacaan=bacaan::find($id);
+        //eror gjls
+        // $siswa=$bacaan->siswa()->get();
+        // $user=$bacaan->user()->get();
+        return view('Master.dashboard.dashboardshow', compact('bacaan'));
     }
 
     /**

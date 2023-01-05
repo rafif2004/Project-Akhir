@@ -66,7 +66,9 @@ Selamat Datang {{ auth()->user()->name }}
                                 <td>
                                     <a href="{{ route('dashboard.show', $item -> id)}}" class="btn btn-sm btn-info btn-circle"><i class="fas fa-info"></i></a>
                                     <a href="{{ route('dashboard.edit', $item -> id)}}" class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
+                                    @if (auth()->user()->role == 1)
                                     <a href="{{ route('dashboard.hapus', $item -> id)}}" class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                                    @endif
                                     {{-- <form action="/dashboard/destroy/{{$item->id}}" method="post">
 										@csrf  
                                         @method('delete')
