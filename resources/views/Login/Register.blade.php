@@ -18,7 +18,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="template/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{ asset('template/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
 </head>
 <br><br>
@@ -30,27 +30,34 @@
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">REGISTER</h2>
-              <form>
+              <form action="{{ route('register.store') }}" method="post">
+                @csrf 
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example1cg">Your Name</label>
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                  <input type="text" name="name" id="name" class="form-control form-control-lg" />
                 </div>
                 <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example1cg">No Absen</label>
+                <input type="text" name="absen" id="absen" class="form-control form-control-lg" />
+              </div>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example1cg">Kelas</label>
+             <select name="kelas" id="kelas" class="form-select form-control form-control-lg">
+              @foreach ($kelas as $kls)
+                  
+              <option value="{{ $kls->id }}">{{ $kls->kelas }}</option>
+              @endforeach
+             </select>
+            </div>
+                <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example3cg">Your Email</label>
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                  <input type="email" name="email" id="email" class="form-control form-control-lg" />
                 </div>
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example4cg">Password</label>
-                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
+                  <input type="password" name="password" id="password" class="form-control form-control-lg" />
                 </div>
-                <div class="form-outline mb-4">
-                    <label class="form-label" for="form3Example4cdg">Repeat your password</label>
-                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
-                </div>
-                <div class="d-flex justify-content-center">
-                  <a href="/Login" class="btn btn-primary btn-user btn-block">Register</a> 
-                </div>
-                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/" class="fw-bold text-body"><u>Login here</u></a></p>
+                  <input type="submit" value="REGISTER" class="btn btn-primary btn-user btn-block" style="background: #4E2F08; color:rgb(255, 255, 255);">                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/" class="fw-bold text-body"><u>Login here</u></a></p>
               </form>
             </div>
           </div>

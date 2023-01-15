@@ -31,5 +31,24 @@ class DatabaseSeeder extends Seeder
         'password' => bcrypt('123'),
         'role' => '2',
         ]);
+
+        \App\Models\kelas::create([
+            'kelas' => '12 RPL 2',
+        ]);
+
+        \App\Models\siswa::create([
+            'nama' => 'rafif',
+            'absen' => '22',
+            'poin' => '90',
+            'id_user' => '2',
+            'id_kelas' => '1'
+            ]);
+
+        \App\Models\wali_kelas::create([
+            'nama_guru' => 'Lukman',
+            'id_kelas' => '1',
+            'id_user' => '2'
+        ]);
     }
 }
+    

@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Nette\Utils\Strings;
 
 return new class extends Migration
 {
@@ -14,11 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kelas', function (Blueprint $table) {
+        Schema::create('bacaan', function (Blueprint $table) {
             $table->id();
-            $table->string('kelas');
-            $table->bigInteger('id_guru')->unsigned();
-            $table->foreign('id_guru')->references('id')->on('wali_kelas')
+            $table->string('nama_siswa');
+            $table->string('judul_buku');
+            $table->string('pengarang');
+            $table->string('penerbit');
+            $table->string('ringkasan');
+            $table->date('tanggal_baca');
+            $table->bigInteger('id_siswa')->unsigned();
+            $table->foreign('id_siswa')->references('id')->on('siswa')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->timestamps();
@@ -32,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kelas');
+        Schema::dropIfExists('bacaan');
     }
 };

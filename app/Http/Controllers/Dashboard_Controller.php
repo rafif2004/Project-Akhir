@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\bacaan;
+use App\Models\siswa;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
@@ -16,11 +17,14 @@ class dashboard_Controller extends Controller
     public function index()
     {
         $jumlah = bacaan::all()->count();
-        $baca = bacaan::all();
-        return view('Master.dashboard.dashboard' , compact('jumlah'), 
-        [
-            'baca' => $baca
-        ]);
+        $nama_siswa=siswa::all();
+        $siswa = siswa::where('id_user', auth()->user()->id)->first();
+        // dd(auth()->user()->id);
+        $baca = bacaan::all(); 
+        // $baca = bacaan::all(); {semua siswa}
+        // $baca = bacaan::Where('id_siswa', $siswa->id)->get(); {siswa tertentu / 1 siswa}
+        return view('Master.dashboard.dashboard' , compact('jumlah', 'nama_siswa', 'baca'));
+         
     }
 
     /**

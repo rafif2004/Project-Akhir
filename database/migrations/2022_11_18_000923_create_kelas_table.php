@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Nette\Utils\Strings;
 
 return new class extends Migration
 {
@@ -13,14 +14,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bacaan', function (Blueprint $table) {
+        Schema::create('kelas', function (Blueprint $table) {
             $table->id();
-            $table->string('judul_buku');
-            $table->string('pengarang');
-            $table->string('penerbit');
-            $table->string('ringkasan');
-            $table->date('tanggal_baca');
-           
+            $table->string('kelas');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bacaan');
+        Schema::dropIfExists('kelas');
     }
 };

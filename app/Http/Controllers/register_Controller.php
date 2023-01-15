@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\kelas;
+use App\Models\siswa;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class register_Controller extends Controller
@@ -13,7 +16,7 @@ class register_Controller extends Controller
      */
     public function index()
     {
-        return view('Login.Register');
+        
     }
 
     /**
@@ -23,7 +26,8 @@ class register_Controller extends Controller
      */
     public function create()
     {
-        //
+        $kelas = kelas::all();
+        return view('Login.register', compact('kelas'));
     }
 
     /**
@@ -34,7 +38,21 @@ class register_Controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate('request'(), [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        $user = User::create(request(['name', 'email', 'password']));
+        siswa::create([
+            'nama' => $user->name,
+            'absen' => $request->absen,
+            'id_user' => $user->id,
+            'id_kelas' => $request->kelas
+        ]);
+
+        return redirect()->to('/')->with(['register_succes' => $user->email]);
     }
 
     /**

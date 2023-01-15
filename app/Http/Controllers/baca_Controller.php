@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\bacaan;
+use App\Models\siswa;
 
 class baca_Controller extends Controller
 {
@@ -22,9 +23,10 @@ class baca_Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('master.baca');
+        $baca=bacaan::find($id);
+        return view('master.baca', compact('baca'));
     }
 
     /**
@@ -50,9 +52,12 @@ class baca_Controller extends Controller
             'ringkasan'=>'required',
             'tanggal_baca'=>'required'
         ], $message); 
-
+        // dd($request->all());
         //insert data
+        $siswa = siswa::where('id_user', auth()->user()->id)->first();
         bacaan::create([
+            'id_siswa' => $siswa->id,
+            'nama_siswa' => auth()->user()->id,
             'judul_buku'=> $request -> judul_buku,
             'pengarang'=> $request -> pengarang,
             'penerbit'=> $request -> penerbit,

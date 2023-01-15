@@ -54,20 +54,26 @@ Selamat Datang {{ auth()->user()->name }}
                                     <th scope="col">JUDUL BUKU</th>
                                     <th scope="col">PENGARANG</th>
                                     <th scope="col">EDIT</th>
+                                    <th scope="col">EDIT</th>
                                 </tr>
                             </thead>
                     <tbody>
-                        @foreach($baca as $i=> $item)
+                        @if (auth()->user()->role == 1)
+                            
+                        @foreach($baca as $i)
                             <tr>
-                                <th scope="row">{{++ $i }}</th>
-                                <td>{{$item -> penerbit}}</td>
-                                <td>{{$item -> judul_buku}}</td>
-                                <td>{{$item -> pengarang}}</td>
+                                <th scope="row">{{$loop->iteration }}</th>
+                                {{-- @foreach($nama_siswa as $i => $item) --}}
+
+                                <td>{{$i->siswa->nama}}</td>
+                                <td>{{$i ->penerbit}}</td>
+                                <td>{{$i ->judul_buku}}</td>
+                                <td>{{$i ->pengarang}}</td>
                                 <td>
-                                    <a href="{{ route('dashboard.show', $item -> id)}}" class="btn btn-sm btn-info btn-circle"><i class="fas fa-info"></i></a>
-                                    <a href="{{ route('dashboard.edit', $item -> id)}}" class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ route('dashboard.show', $i -> id)}}" class="btn btn-sm btn-info btn-circle"><i class="fas fa-info"></i></a>
+                                    <a href="{{ route('dashboard.edit', $i -> id)}}" class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
                                     @if (auth()->user()->role == 1)
-                                    <a href="{{ route('dashboard.hapus', $item -> id)}}" class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                                    <a href="{{ route('dashboard.hapus', $i -> id)}}" class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
                                     @endif
                                     {{-- <form action="/dashboard/destroy/{{$item->id}}" method="post">
 										@csrf  
@@ -77,6 +83,9 @@ Selamat Datang {{ auth()->user()->name }}
                                 </td>
                             </tr>
                         @endforeach
+                        @endif
+
+                        {{-- @endforeach --}}
                     </tbody>
                 </table>
             </div>

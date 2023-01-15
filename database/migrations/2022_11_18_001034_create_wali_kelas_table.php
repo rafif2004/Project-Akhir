@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::create('wali_kelas', function (Blueprint $table) {
             $table->id();
             $table->string('nama_guru');
+            $table->bigInteger('id_kelas')->unsigned();
+            $table->foreign('id_kelas')->references('id')->on('kelas')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->bigInteger('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users')
                 ->onDelete('cascade')

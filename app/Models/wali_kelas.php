@@ -12,7 +12,7 @@ class wali_kelas extends Model
 
     public function kelas()
     {
-        return $this->hasOne(kelas::class, 'id');
+        return $this->belongsTo(kelas::class, 'id_kelas');
     }
     public function User()
     {

@@ -22,7 +22,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="" style="background:#8F673D;">
 
     <div class="container">
 
@@ -50,6 +50,11 @@
                                         </ul>
                                     </div>
                                     @endif
+                                    @if ($message = Session::get('register_succes'))
+                                    <div class="alert alert-success alert-block-mt-3">
+                                        <strong>{{ $message }}Berhasil Dibuat</strong>
+                                    </div>
+                                    @endif
                                     <form action="login" method="post" class="user">
                                     @csrf 
                                         <div class="form-group">
@@ -68,8 +73,8 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <input type="submit" value="LOGIN" class="btn btn-primary btn-user btn-block">
-                                        <p class="text-center text-muted mt-4 mb-0"><a href="/register" class="fw-bold text-body"><u>Register here</u></a></p>
+                                        <input type="submit" value="LOGIN" class="btn-user btn-block" style="background: #4E2F08; color:rgb(255, 255, 255);">
+                                        <p class="text-center text-muted mt-4 mb-0"><a href="{{ route('register.create') }}" class="fw-bold text-body"><b>Register here</b></a></p>
                                     </form>
                                 </div>
                             </div>

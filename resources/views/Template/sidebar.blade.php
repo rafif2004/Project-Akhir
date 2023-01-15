@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" style="background:#8F673D;" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -20,13 +20,13 @@
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
-
+            {{-- @if (auth()->user()->role == 0) --}}
             <li class="nav-item">
                 <a class="nav-link" href="/baca">
                     <i class="fas fa-fw fa-book"></i>
                 <span>Baca</span></a>
             </li>
-            
+            {{-- @endif --}}
             {{-- @if (auth()->user()->role == 2) --}}
             <li class="nav-item">
                 <a class="nav-link" href="/riwayat">

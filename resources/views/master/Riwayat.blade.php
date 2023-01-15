@@ -17,9 +17,10 @@
                 <thead>
                     <tr>
                         <th scope="col">NO</th>
-                        <th scope="col">NAMA</th>
+                        <th scope="col">NAMA SISWA</th>
                         <th scope="col">JUDUL BUKU</th>
-                        <th scope="col">PENGARANG</th>
+                        <th scope="col">NAMA PENGARANG</th>
+                        <th scope="col">TANGGAL BACA</th>
                         <th scope="col">EDIT</th>
                     </tr>
                 </thead>
@@ -29,6 +30,7 @@
                         <td>Penceng</td>
                         <td>Buku</td>
                         <td>Samson</td>
+                        <td>01-02-2021</td>
                         <td>
                         <a href="" class="btn btn-sm btn-info btn-circle"><i class="fas fa-info"></i></a>
                         <a href="" class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
