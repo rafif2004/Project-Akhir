@@ -49,6 +49,7 @@
 
     <!-- Scroll to Top Button-->
     @include('Template.script')
-
+    @stack('scripts')
+    
 </body>
 </html>

@@ -38,11 +38,17 @@ class register_Controller extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate('request'(), [
+        $message=[
+            'required'=>':attribute HARUS DI ISI',
+            'unique'=>':attribute SUDAH DIGUNAKAN',
+        ];
+
+        $this->validate($request, [
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:users',
+            'kelas' => 'required',
             'password' => 'required',
-        ]);
+        ], $message);
 
         $user = User::create(request(['name', 'email', 'password']));
         siswa::create([

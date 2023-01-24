@@ -22,7 +22,7 @@
 
 </head>
 <br><br>
-<body class="bg-gradient-primary">
+<body class="bg-gradient-primary" style="background:#8F673D;">
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -32,8 +32,17 @@
               <h2 class="text-uppercase text-center mb-5">REGISTER</h2>
               <form action="{{ route('register.store') }}" method="post">
                 @csrf 
+                @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $item)
+                        <li>{{ $item }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="form3Example1cg">Your Name</label>
+                    <label class="form-label" for="form3Example1cg">Nama Siswa</label>
                   <input type="text" name="name" id="name" class="form-control form-control-lg" />
                 </div>
                 <div class="form-outline mb-4">
@@ -42,22 +51,22 @@
               </div>
               <div class="form-outline mb-4">
                 <label class="form-label" for="form3Example1cg">Kelas</label>
-             <select name="kelas" id="kelas" class="form-select form-control form-control-lg">
+             <select name="kelas" id="kelas" class="form-select form-control form-control-lg" required>
+               <option disabled selected>Silakan Pilih Kelas</option>
               @foreach ($kelas as $kls)
-                  
               <option value="{{ $kls->id }}">{{ $kls->kelas }}</option>
               @endforeach
              </select>
             </div>
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="form3Example3cg">Your Email</label>
+                    <label class="form-label" for="form3Example3cg">Email Siswa</label>
                   <input type="email" name="email" id="email" class="form-control form-control-lg" />
                 </div>
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example4cg">Password</label>
                   <input type="password" name="password" id="password" class="form-control form-control-lg" />
                 </div>
-                  <input type="submit" value="REGISTER" class="btn btn-primary btn-user btn-block" style="background: #4E2F08; color:rgb(255, 255, 255);">                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/" class="fw-bold text-body"><u>Login here</u></a></p>
+                  <input type="submit" value="REGISTER" class="btn btn-primary btn-user btn-block p-2" style="background: #4E2F08; color:rgb(255, 255, 255);">
               </form>
             </div>
           </div>

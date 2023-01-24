@@ -1,12 +1,12 @@
 @extends('template.admin')
-@section('title', 'Dashboard')
+@section('title', 'Riwayat')
 @section('content-title')
 Edit Bacaan {{ auth()->user()->name }}
 @endsection
 @section('content')
 <div class="card shadow mb-4">
     <div class="card-body">
-    <form method="post" enctype="multipart/form-data" action="{{ route('dashboard.edit' , $bacaan->id) }}">
+    <form method="post" enctype="multipart/form-data" action="{{ route('riwayat.edit' , $bacaan->id) }}">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -31,7 +31,7 @@ Edit Bacaan {{ auth()->user()->name }}
                 <input type="date" class="form-control" id="tanggal_baca" name="tanggal_baca" value="{{ $bacaan->tanggal_baca }}">
             </div><br>
             <div class="form-group">
-            <a href="{{ route('dashboard.index') }}" class="btn btn-danger">Kembali</a>
+            <a href="{{ route('riwayat.index') }}" class="btn btn-danger">Kembali</a>
                 <input type="submit" class="btn btn-success" value="Simpan">
             </div>
         </form>

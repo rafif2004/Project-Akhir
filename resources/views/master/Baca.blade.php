@@ -23,7 +23,7 @@
     </ul>
 </div>
 @endif
-<form method="post" enctype="multipart/form-data" action="{{ route('baca.store') }}" >
+<form method="post" enctype="multipart/form-data" action="{{ route('baca.store') }}" id="form">
     @csrf
     <input type="hidden" name="id_siswa" value="">
     <div class="form-group">
@@ -47,7 +47,16 @@
         <input type="date" class="form-control" id="tanggal_baca" name="tanggal_baca" value="">
     </div>
     <div class="form-group">
-        <input type="submit" class="btn btn-success" value="simpan">
+        <button type="submit" class="btn btn-success" id="btn-submit">simpan</button>
     </div>
 </form>
+
 @endsection
+@push('scripts')
+<script>
+    $('#btn-submit').on('click', function(e){
+        $('#btn-submit').attr('disabled', true);
+        $('#form').submit();
+    });
+</script>
+@endpush
