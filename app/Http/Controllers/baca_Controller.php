@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\bacaan;
+use App\Models\kelas;
 use App\Models\siswa;
 
 class baca_Controller extends Controller
@@ -39,7 +40,7 @@ class baca_Controller extends Controller
     {
         $message=[
             'required'=>':attribute harus di isi yaa...',
-            'min'=>':attribute minimal :min karakter ya...',
+pDASH            'min'=>':attribute minimal :min karakter ya...',
             'max'=>':attribute maksimal :max karakter ya...',
             'numeric'=>':attribut harus di isi angka'
         ];
@@ -62,6 +63,7 @@ class baca_Controller extends Controller
             'pengarang'=> $request -> pengarang,
             'penerbit'=> $request -> penerbit,
             'ringkasan'=> $request -> ringkasan,
+            'id_kelas'=> $siswa->id_kelas,
             'tanggal_baca'=> $request -> tanggal_baca
         ]);
 

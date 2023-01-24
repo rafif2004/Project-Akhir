@@ -18,4 +18,8 @@ class kelas extends Model
     {
         return $this->hasOne(wali_kelas::class, 'id');
     }
+    public function bacaan(){
+        return $this->hasMany(bacaan::class, 'id');
+    }
+
 }

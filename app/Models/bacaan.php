@@ -15,4 +15,7 @@ class bacaan extends Model
     {
         return $this->belongsTo(siswa::class, 'id_siswa');
     }
+    public function kntl(){
+        return $this->belongsTo(kelas::class, 'id_kelas');
+    }
 }

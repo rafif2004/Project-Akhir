@@ -18,7 +18,7 @@ Selamat Datang {{ auth()->user()->name }}
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Buku Yang Di Baca</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$jumlah}}</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$baca->count()}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -32,8 +32,8 @@ Selamat Datang {{ auth()->user()->name }}
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Jumlah Buku Yang Di Pinjam</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Jumlah Point Siswa</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">?Masi Belum?</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-clipboard fa-2x text-gray-300"></i>
@@ -51,7 +51,7 @@ Selamat Datang {{ auth()->user()->name }}
                                 <tr>
                                     <th scope="col">NO</th>
                                     <th scope="col">NAMA</th>
-                                    <th scope="col">JUDUL BUKU</th>
+                                    <th scope="col">KELAS</th>
                                     <th scope="col">PENGARANG</th>
                                     <th scope="col">EDIT</th>
                                     <th scope="col">EDIT</th>
@@ -64,11 +64,10 @@ Selamat Datang {{ auth()->user()->name }}
                             <tr>
                                 <th scope="row">{{$loop->iteration }}</th>
                                 {{-- @foreach($nama_siswa as $i => $item) --}}
-
                                 <td>{{$i->siswa->nama}}</td>
-                                <td>{{$i ->penerbit}}</td>
-                                <td>{{$i ->judul_buku}}</td>
-                                <td>{{$i ->pengarang}}</td>
+                                <td>{{$i->kntl->kelas}}</td>
+                                <td>{{$i->judul_buku}}</td>
+                                <td>{{$i->pengarang}}</td>
                                 <td>
                                     <a href="{{ route('dashboard.show', $i -> id)}}" class="btn btn-sm btn-info btn-circle"><i class="fas fa-info"></i></a>
                                     <a href="{{ route('dashboard.edit', $i -> id)}}" class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
