@@ -40,7 +40,7 @@ class baca_Controller extends Controller
     {
         $message=[
             'required'=>':attribute harus di isi yaa...',
-pDASH            'min'=>':attribute minimal :min karakter ya...',
+            'min'=>':attribute minimal :min karakter ya...',
             'max'=>':attribute maksimal :max karakter ya...',
             'numeric'=>':attribut harus di isi angka'
         ];

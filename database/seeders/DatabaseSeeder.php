@@ -17,23 +17,25 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         \App\Models\User::create([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
+            'name' => 'siswa',
+            'email' => 'siswa@gmail.com',
             'password' => bcrypt('123'),
-            'role' => '1',
-
-           
+            'role' => '2',
         ]);
         
         \App\Models\User::create([
-        'name' => 'siswa',
-        'email' => 'siswa@gmail.com',
+        'name' => 'lukman',
+        'email' => 'lukman@gmail.com',
         'password' => bcrypt('123'),
-        'role' => '2',
+        'role' => '1',
         ]);
 
         \App\Models\kelas::create([
             'kelas' => '12 RPL 2',
+        ]);
+
+        \App\Models\kelas::create([
+            'kelas' => '12 RPL 1',
         ]);
 
         \App\Models\siswa::create([
