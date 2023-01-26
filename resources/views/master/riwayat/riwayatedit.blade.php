@@ -1,12 +1,12 @@
 @extends('template.admin')
-@section('title', 'Riwayat')
+@section('title', 'Dashboard')
 @section('content-title')
 Edit Bacaan {{ auth()->user()->name }}
 @endsection
 @section('content')
 <div class="card shadow mb-4">
     <div class="card-body">
-    <form method="post" enctype="multipart/form-data" action="{{ route('riwayat.edit' , $bacaan->id) }}">
+    <form method="post" enctype="multipart/form-data" action="{{ route('riwayat.editin' , $bacaan->id) }}">
             @csrf
             @method('PUT')
             <div class="form-group">

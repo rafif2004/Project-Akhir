@@ -33,7 +33,7 @@ Selamat Datang {{ auth()->user()->name }}
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Jumlah Point Siswa</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">?Masi Belum?</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $siswa->poin }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-clipboard fa-2x text-gray-300"></i>

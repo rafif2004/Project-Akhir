@@ -11,10 +11,10 @@ Profil Bacaan {{ auth()->user()->name }}
             <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-user"> </i> Profil Siswa</h6>
         </div>
             <div class="card-body">
-                <h4 class="mt-3">Nama Siswa = {{ auth()->user()->name }}</h4>
-                <h4 class="mt-3">Kelas = </h4>
-                <h4 class="mt-3">Absen = </h4>
-                <h4 class="mt-3">Poin Bacaan = </h4>
+                <p class="mt-3">Nama Siswa = {{ $nama->nama }}</p>
+                <p class="mt-3">Kelas = {{ $kelasin->kelas->kelas }}</p>
+                <p class="mt-3">Absen = {{ $absen->absen }}</p>
+                <p class="mt-3">Poin Bacaan = {{ $poin->poin }}</p>
             </div>
       </div>
     </div>
@@ -24,10 +24,10 @@ Profil Bacaan {{ auth()->user()->name }}
             <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-quote-left"></i> Bacaan Siswa</h6>
         </div>
         <div class="card-body text-center">
-            <h4 class="mt-3">{{ $bacaan->judul_buku }}</h4>
+            <h3 class="mt-3">{{ $bacaan->judul_buku }}</h3>
             {{-- <h5 class="mt-3"><i class="fas fa-id-card"> {{ $bacaan->pengarang }}</i></h5>
             <h5 class="mt-3"><i class="fas fa-venus-mars"> {{ $bacaan->penerbit }}</i></h5> --}}
-            <h5 class="mt-3 text-left">{{ $bacaan->ringkasan }}</h5>
+            <p class="mt-3 text-left">{{ $bacaan->ringkasan }}</p>
         </div>
         </div>
     </div>

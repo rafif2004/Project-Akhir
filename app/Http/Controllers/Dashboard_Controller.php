@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\bacaan;
 use App\Models\kelas;
 use App\Models\siswa;
@@ -18,15 +19,15 @@ class dashboard_Controller extends Controller
     public function index()
     {
         $jumlah = bacaan::all()->count();
-        $nama_siswa=siswa::all();
         $kelas_siswa=kelas::all();
+        $user = User::all();
         $siswa = siswa::where('id_user', auth()->user()->id)->first();
-        // dd($siswa);
+        // dd($nama_siswa);
         $baca = bacaan::where('id_kelas', '=', $siswa->id_kelas)->get();
         // $baca = bacaan::all(); 
         // $baca = bacaan::all(); {semua siswa}
         // $baca = bacaan::Where('id_siswa', $siswa->id)->get(); {siswa tertentu / 1 siswa}
-        return view('Master.dashboard.dashboard' , compact('jumlah', 'nama_siswa', 'baca', 'kelas_siswa'));
+        return view('Master.dashboard.dashboard' , compact('jumlah', 'siswa', 'baca', 'kelas_siswa', 'user'));
          
     }
 
@@ -60,10 +61,14 @@ class dashboard_Controller extends Controller
     public function show($id)
     {
         $bacaan=bacaan::find($id);
+        $kelasin=siswa::find($id);
+        $absen=siswa::find($id);
+        $poin = siswa::find($id);
+        $nama = siswa::find($id);
         //eror gjls
         // $siswa=$bacaan->siswa()->get();
         // $user=$bacaan->user()->get();
-        return view('Master.dashboard.dashboardshow', compact('bacaan'));
+        return view('Master.dashboard.dashboardshow', compact('bacaan', 'kelasin', 'absen', 'poin', 'nama'));
     }
 
     /**
@@ -91,7 +96,7 @@ class dashboard_Controller extends Controller
             'required'=>':attribute harus di isi yaa...',
             'min'=>':attribute minimal :min karakter ya...',
             'max'=>':attribute maksimal :max karakter ya...',
-            'numeric'=>':attribut harus di isi angka'
+            'numeric'=>':attribut harus di isi angka ya...'
         ];
 
         //validasi data
@@ -112,7 +117,7 @@ class dashboard_Controller extends Controller
         $bacaan->tanggal_baca = $request ->tanggal_baca;
         $bacaan->save();
 
-        Session::flash('success', "Data Berhasil Di Ubah");
+        Session::flash('success', "Data Berhasil Di Edit");
         return redirect('/dashboard');
     }
 

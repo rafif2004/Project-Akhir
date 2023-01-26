@@ -86,7 +86,7 @@ class riwayat_Controller extends Controller
             'required'=>':attribute harus di isi yaa...',
             'min'=>':attribute minimal :min karakter ya...',
             'max'=>':attribute maksimal :max karakter ya...',
-            'numeric'=>':attribut harus di isi angka'
+            'numeric'=>':attribut harus di isi angka ya...'
         ];
 
         //validasi data
@@ -107,7 +107,7 @@ class riwayat_Controller extends Controller
         $bacaan->tanggal_baca = $request ->tanggal_baca;
         $bacaan->save();
 
-        Session::flash('success', "Data Berhasil Di Ubah");
+        Session::flash('success', "Data Berhasil Di Edit");
         return redirect('/riwayat');
     }
 

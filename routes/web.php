@@ -51,5 +51,6 @@ Route::middleware('auth')->group(function(){
     // Route::post('/dashboard/destroy/{id}', [dashboard_Controller::class, 'destroy']);
     Route::get('/dashboard/hapus/{id}', [dashboard_Controller::class, 'hapus'])->name('dashboard.hapus');
     Route::get('/riwayat/hapus/{id}', [riwayat_Controller::class, 'hapus'])->name('riwayat.hapus');
-    // Route::put('/dashboard/update/{id}', [dashboard_Controller::class, 'update'])->name('dashboard.edit');
+    Route::put('/dashboard/update/{id}', [dashboard_Controller::class, 'update'])->name('dashboard.editin');
+    Route::put('/riwayat/update/{id}', [riwayat_Controller::class, 'update'])->name('riwayat.editin');
 });

@@ -6,7 +6,7 @@ Edit Bacaan {{ auth()->user()->name }}
 @section('content')
 <div class="card shadow mb-4">
     <div class="card-body">
-    <form method="post" enctype="multipart/form-data" action="{{ route('dashboard.edit' , $bacaan->id) }}">
+    <form method="post" enctype="multipart/form-data" action="{{ route('dashboard.editin' , $bacaan->id) }}">
             @csrf
             @method('PUT')
             <div class="form-group">
