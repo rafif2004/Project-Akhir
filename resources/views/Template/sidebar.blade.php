@@ -43,6 +43,13 @@
             </li>
            @endif
 
+           @if (auth()->user()->role == 1)
+            <li class="nav-item">
+                <a class="nav-link" href="/riwayatguru">
+                    <i class="fas fa-fw fa-fa-points"></i>
+                <span>Tambah Poin</span></a>
+            </li>
+           @endif
             <!-- Heading -->
             <!-- <div class="sidebar-heading">
                 Interface

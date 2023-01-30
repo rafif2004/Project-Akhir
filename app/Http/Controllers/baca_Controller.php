@@ -51,7 +51,6 @@ class baca_Controller extends Controller
             'pengarang'=>'required',
             'penerbit'=>'required',
             'ringkasan'=>'required',
-            'tanggal_baca'=>'required'
         ], $message); 
         // dd($request->all());
         //insert data
@@ -64,7 +63,7 @@ class baca_Controller extends Controller
             'penerbit'=> $request -> penerbit,
             'ringkasan'=> $request -> ringkasan,
             'id_kelas'=> $siswa->id_kelas,
-            'tanggal_baca'=> $request -> tanggal_baca
+            'tanggal_baca'=> date(now())
         ]);
 
         Session::flash('success', "Data Berhasil Di Tambahkan Silakan Check Di Riwayat");

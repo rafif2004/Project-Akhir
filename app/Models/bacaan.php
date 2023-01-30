@@ -10,6 +10,7 @@ class bacaan extends Model
     use HasFactory;  
     protected $guarded = ['id'];
     protected $table = 'bacaan';
+    protected $with = ['siswa'];
     
     public function siswa()
     {

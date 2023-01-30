@@ -42,10 +42,10 @@
         <label for="ringkasan">RINGKASAN</label>
         <textarea type="text" class="form-control" id="ringkasan" name="ringkasan" value=""></textarea>
     </div>
-    <div class="form-group">
+    {{-- <div class="form-group">
         <label for="tanggal_baca">TANGGAL BACA</label>
         <input type="date" class="form-control" id="tanggal_baca" name="tanggal_baca" value="">
-    </div>
+    </div> --}}
     <div class="form-group">
         <button type="submit" class="btn btn-success" id="btn-submit">simpan</button>
     </div>

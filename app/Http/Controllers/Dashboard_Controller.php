@@ -61,14 +61,10 @@ class dashboard_Controller extends Controller
     public function show($id)
     {
         $bacaan=bacaan::find($id);
-        $kelasin=siswa::find($id);
-        $absen=siswa::find($id);
-        $poin = siswa::find($id);
-        $nama = siswa::find($id);
         //eror gjls
         // $siswa=$bacaan->siswa()->get();
         // $user=$bacaan->user()->get();
-        return view('Master.dashboard.dashboardshow', compact('bacaan', 'kelasin', 'absen', 'poin', 'nama'));
+        return view('Master.dashboard.dashboardshow', compact('bacaan'));
     }
 
     /**
