@@ -7,6 +7,8 @@ use App\Http\Controllers\riwayat_Controller;
 use App\Http\Controllers\riwayatguru_Controller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\register_Controller;
+use App\Http\Controllers\profil_Controlller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,8 +49,9 @@ Route::middleware('auth')->group(function(){
     Route::resource('riwayat', riwayat_Controller::class);
     Route::resource('riwayatguru', riwayatguru_Controller::class);
     Route::resource('baca', baca_Controller::class);
+    Route::resource('profil', profil_Controlller::class);
     Route::post('logout', [LoginController::class, 'logout']);
-    // Route::post('/dashboard/destroy/{id}', [dashboard_Controller::class, 'destroy']);
+    // Route::post('/profil/destroy/{id}', [profil_Controlller::class, 'destroy']);
     Route::get('/dashboard/hapus/{id}', [dashboard_Controller::class, 'hapus'])->name('dashboard.hapus');
     Route::get('/riwayat/hapus/{id}', [riwayat_Controller::class, 'hapus'])->name('riwayat.hapus');
     Route::get('/riwayatguru/hapus/{id}', [riwayatguru_Controller::class, 'hapus'])->name('riwayatguru.hapus');

@@ -41,8 +41,8 @@ Selamat Datang {{ auth()->user()->name }}
                                 <td>{{$i->pengarang}}</td>
                                 <td>
                                     <a href="{{ route('riwayat.show', $i -> id)}}" class="btn btn-sm btn-info btn-circle"><i class="fas fa-info"></i></a>
-                                    <a href="{{ route('riwayat.edit', $i -> id)}}" class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
                                     @if (auth()->user()->role == 1)
+                                    <a href="{{ route('riwayat.edit', $i -> id)}}" class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
                                     <a href="{{ route('riwayat.hapus', $i -> id)}}" class="btn btn-sm btn-danger btn-circle"><i class="fas fa-trash"></i></a>
                                     @endif
                                     {{-- <form action="/dashboard/destroy/{{$item->id}}" method="post">
