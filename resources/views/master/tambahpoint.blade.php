@@ -1,7 +1,7 @@
 @extends('template.admin')
 @section('title', 'Baca')
 @section('content-title')
-<h2>Silakan Input Bacaan
+<h2>Tambah Point
     {{ auth()->user()->name }}
 </h2><br>
 @endsection
@@ -52,4 +52,3 @@
 </form>
 
 @endsection
-@endpush

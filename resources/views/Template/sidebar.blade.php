@@ -24,14 +24,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="/baca">
                     <i class="fas fa-fw fa-book"></i>
-                <span>Baca</span></a>
+                <span>Input Buku</span></a>
             </li>
             {{-- @endif --}}
             {{-- @if (auth()->user()->role == 2) --}}
             <li class="nav-item">
                 <a class="nav-link" href="/riwayat">
                     <i class="fas fa-fw fa-address-card"></i>
-                <span>Riwayat</span></a>
+                <span>Riwayat Bacaan</span></a>
             </li>
                 {{-- @endif --}}
 
@@ -45,8 +45,8 @@
 
            @if (auth()->user()->role == 1)
             <li class="nav-item">
-                <a class="nav-link" href="/riwayatguru">
-                    <i class="fas fa-fw fa-fa-points"></i>
+                <a class="nav-link" href="/tambahpoint">
+                    <i class="fas fa-fw fa-address-card"></i>
                 <span>Tambah Poin</span></a>
             </li>
            @endif

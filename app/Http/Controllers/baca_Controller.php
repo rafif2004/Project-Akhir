@@ -16,7 +16,7 @@ class baca_Controller extends Controller
      */
     public function index()
     {
-        return view('master.baca');
+        return view('Master.baca');
     }
 
     /** 
