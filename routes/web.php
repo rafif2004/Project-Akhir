@@ -60,4 +60,5 @@ Route::middleware('auth')->group(function(){
     Route::put('/dashboard/update/{id}', [dashboard_Controller::class, 'update'])->name('dashboard.editin');
     Route::put('/riwayat/update/{id}', [riwayat_Controller::class, 'update'])->name('riwayat.editin');
     Route::put('/riwayatguru/update/{id}', [riwayatguru_Controller::class, 'update'])->name('riwayatguru.editin');
+    Route::put('/profil/update/{id}', [profil_Controlller::class, 'update'])->name('profil.editin');
 });

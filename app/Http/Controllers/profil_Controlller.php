@@ -64,7 +64,8 @@ class profil_Controlller extends Controller
      */
     public function edit($id)
     {
-        //
+        $bacaan = bacaan::find($id);
+        return view('master.profiledit', compact('bacaan'));
     }
 
     /**
@@ -76,7 +77,27 @@ class profil_Controlller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //validasi data
+        $this->validate($request, [
+            'judul_buku' => 'required',
+            'pengarang' => 'required',
+            'penerbit' => 'required',
+            'ringkasan' => 'required',
+            'tanggal_baca' => 'required'
+        ],);
+
+        //insert data
+        $bacaan = bacaan::find($id);
+        $bacaan->judul_buku = $request->judul_buku;
+        $bacaan->pengarang = $request->pengarang;
+        $bacaan->penerbit = $request->penerbit;
+        $bacaan->ringkasan = $request->ringkasan;
+        $bacaan->tanggal_baca = $request->tanggal_baca;
+        $bacaan->save();
+
+        Session::flash('success', "Data Berhasil Di Edit");
+        return redirect('/profil');
+
     }
 
     /**
