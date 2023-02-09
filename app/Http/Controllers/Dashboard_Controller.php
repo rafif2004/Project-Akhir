@@ -24,11 +24,12 @@ class dashboard_Controller extends Controller
         $siswa = siswa::where('id_user', auth()->user()->id)->first();
         // dd($nama_siswa);
         $baca = bacaan::where('id_kelas', '=', $siswa->id_kelas)->get();
+        $baca_siswa = bacaan::where('id_siswa', $siswa->id)->get()->count();
         $jumlah = bacaan::all();
         // $baca = bacaan::all(); 
         // $baca = bacaan::all(); {semua siswa}
         // $baca = bacaan::Where('id_siswa', $siswa->id)->get(); {siswa tertentu / 1 siswa}
-        return view('Master.dashboard.dashboard' , compact('jumlah', 'siswa', 'baca', 'kelas_siswa', 'user', 'jumlah'));
+        return view('Master.dashboard.dashboard' , compact('jumlah', 'siswa', 'baca','baca_siswa' ,'kelas_siswa', 'user', 'jumlah'));
          
     }
 

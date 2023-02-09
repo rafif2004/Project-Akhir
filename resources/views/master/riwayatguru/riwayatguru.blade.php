@@ -21,7 +21,7 @@ Selamat Datang {{ auth()->user()->name }}
             <div class="card shadow mb-4">
                 <div class="card-body">
                     <div class="card-body">
-                        <table class="table">
+                        <table class="table" id="table">
                             <thead>
                                 <tr>
                                     <th scope="col">NO</th>
@@ -63,4 +63,11 @@ Selamat Datang {{ auth()->user()->name }}
         </div>
     </div>
 </div>
+<script>
+$(document).ready( function () {
+    let table = new DataTable('#table', {
+    // options
+});
+} );
+</script>
 @endsection

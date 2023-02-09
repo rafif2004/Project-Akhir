@@ -11,6 +11,7 @@ Selamat Datang {{ auth()->user()->name }}
     </div>
     @endif
 <div class="row">
+               @if (auth()->user()->role == 2)
     <!-- Earnings (Monthly) Card Example -->
     <div class="col-xl-3 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
@@ -18,7 +19,7 @@ Selamat Datang {{ auth()->user()->name }}
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Buku Yang Di Baca</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$baca->count()}}</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$baca_siswa}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -42,11 +43,12 @@ Selamat Datang {{ auth()->user()->name }}
             </div>
         </div>
     </div>
+    @endif
         <div class="col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-body">
                     <div class="card-body">
-                        <table class="table">
+                        <table class="table" id="table">
                             <thead>
                                 <tr>
                                     <th scope="col">NO</th>
@@ -82,13 +84,18 @@ Selamat Datang {{ auth()->user()->name }}
                                 </td>
                             </tr>
                         @endforeach
-                        {{-- @endif --}}
-
-                        {{-- @endforeach --}}
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+ <script>
+    //harus di tambah i <table class="table" """id="table""">
+$(document).ready( function () {
+    let table = new DataTable('#table', {
+    // options
+});
+} );
+</script>
 @endsection

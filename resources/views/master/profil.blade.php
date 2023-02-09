@@ -16,6 +16,17 @@ Profil Bacaan {{ auth()->user()->name }}
         <div class="card-header">
             <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-user"> </i> Profil</h6>
         </div>
+          @if (auth()->user()->role == 1)
+                           @foreach($siswa as $ok)
+                   <div class="card-body">
+                        <p class="mt-3">Nama Guru = {{ $ok->nama }}</p>
+                        <p class="mt-3">Kelas = {{ $ok->kelas->kelas }}</p>
+                        <p class="mt-3">Absen = {{ $ok->absen }}</p>
+                        <p class="mt-3">Poin Bacaan = {{ $ok->poin }}</p>
+                    </div>
+            @endforeach
+                @endif  
+                @if (auth()->user()->role == 2)
             @foreach($siswa as $ok)
             <div class="card-body">
                 <p class="mt-3">Nama Siswa = {{ $ok->nama }}</p>
@@ -24,11 +35,14 @@ Profil Bacaan {{ auth()->user()->name }}
                 <p class="mt-3">Poin Bacaan = {{ $ok->poin }}</p>
             </div>
             @endforeach
+            @endif
       </div>
     </div>  
+               @if (auth()->user()->role == 2)
     <div class="col-lg-8">
         <div class="card shadow mb-4">
         <div class="card-header">
+            
             <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-fw fa-book"></i> Buku Yang Pernah Di Baca</h6>
         </div>
         <div class="card-body">
@@ -60,5 +74,6 @@ Profil Bacaan {{ auth()->user()->name }}
         </div>
         </div>
     </div>
+    @endif
 </div>
 @endsection

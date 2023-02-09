@@ -51,7 +51,6 @@ Route::middleware('auth')->group(function(){
     Route::resource('riwayatguru', riwayatguru_Controller::class);
     Route::resource('baca', baca_Controller::class);
     Route::resource('profil', profil_Controlller::class);
-    Route::resource('tambahpoint', tambahpoint_Controlller::class);
     Route::post('logout', [LoginController::class, 'logout']);
     // Route::post('/profil/destroy/{id}', [profil_Controlller::class, 'destroy']);
     Route::get('/dashboard/hapus/{id}', [dashboard_Controller::class, 'hapus'])->name('dashboard.hapus');
