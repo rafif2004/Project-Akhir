@@ -45,8 +45,9 @@ class register_Controller extends Controller
 
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|unique:users',
-            'kelas' => 'required',
+            'Email' => 'required|unique:users',
+            'Kelas' => 'required',
+            'absen' => 'required',
             'password' => 'required',
         ], $message);
 

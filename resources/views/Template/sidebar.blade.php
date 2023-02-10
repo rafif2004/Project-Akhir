@@ -20,13 +20,13 @@
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
-            {{-- @if (auth()->user()->role == 0) --}}
+            @if (auth()->user()->role == 2)
             <li class="nav-item">
                 <a class="nav-link" href="/baca">
                     <i class="fas fa-fw fa-book"></i>
                 <span>Input Buku</span></a>
             </li>
-            {{-- @endif --}}
+            @endif
             {{-- @if (auth()->user()->role == 2) --}}
             <li class="nav-item">
                 <a class="nav-link" href="/riwayat">

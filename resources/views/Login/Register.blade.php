@@ -67,6 +67,7 @@
                   <input type="password" name="password" id="password" class="form-control form-control-lg" />
                 </div>
                   <input type="submit" value="REGISTER" class="btn btn-primary btn-user btn-block p-2" style="background: #4E2F08; color:rgb(255, 255, 255);">
+                  <p class="text-center text-muted mt-4 mb-0"><a href="/" class="fw-bold text-body"><b>Login here</b></a></p>
               </form>
             </div>
           </div>
