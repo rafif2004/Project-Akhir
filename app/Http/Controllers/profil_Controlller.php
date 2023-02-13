@@ -53,7 +53,7 @@ class profil_Controlller extends Controller
      */
     public function show($id)
     {
-        //
+        // siswa::find($id);->dd()
     }
 
     /**

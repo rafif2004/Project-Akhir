@@ -1,7 +1,12 @@
 @extends('template.admin')
 @section('title', 'Dashboard')
 @section('content-title')
-Selamat Datang {{ auth()->user()->name }}
+@if (auth()->user()->role == 2)
+Profil Siswa 1 Kelas #siswa
+@endif
+@if (auth()->user()->role == 1)
+Profil Siswa 1 Kelas #guru
+@endif
 @endsection
 @section('content')
     @if ($message = Session::get('success'))
@@ -28,7 +33,7 @@ Selamat Datang {{ auth()->user()->name }}
             </div>
         </div>
     </div>
-    <div class="col-xl-3 mb-4">
+    <div class="col-xl-3 mb-4 animate__animated animate__bounce">
         <div class="card border-left-success shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -61,62 +66,55 @@ Selamat Datang {{ auth()->user()->name }}
                     <tbody>
                         {{-- @if (auth()->user()->role == 1) --}}
                             
-                        @foreach($baca as $i)
+                        @foreach($nama as $i)
                             <tr>
                                 <th scope="row">{{$loop->iteration }}</th>
                                 {{-- @foreach($nama_siswa as $i => $item) --}}
-                                <td>{{$i->siswa->nama}}</td>
-                                <td>{{$i->kntl->kelas}}</td>
-                                <td>{{$i->siswa->absen}}</td>
+                                <td>{{$i->nama}}</td>
+                                <td>{{$i->kelas->kelas}}</td>
+                                {{-- <td>{{$i->kelas->created_at->diffForHumans()}}</td> --}}
+                                <td>{{$i->absen}}</td>
                                 <td>
-                                    <a href="{{ route('dashboard.show', $i -> id)}}" class="btn btn-sm btn-info btn-circle"><i class="fas fa-info"></i></a>
+                                    <a href="{{ route('dashboard.show', $i->id)}}" class="btn btn-sm btn-info btn-circle"><i class="fas fa-info"></i></a>
                                     @if (auth()->user()->role == 1) 
-                                    <a href="{{ route('dashboard.edit', $i -> id)}}" class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
-                                    <!-- Hapus -->
-                                    <button type="button" class="btn btn-sm btn-danger btn-circle" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="fas fa-trash"></i>
-                                        </button>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                ...
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <a type="button" class="btn btn-danger" href="{{ route('dashboard.hapus', $i -> id)}}">Hapus</a>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    <a href="{{ route('dashboard.hapus', $i -> id)}}" class="btn btn-sm btn-success btn-circle"><i class="fas fa-plus"></i></a>
-                                    <!-- Button trigger modal -->
                                     @endif
-                                    {{-- <form action="/dashboard/destroy/{{$item->id}}" method="post">
-										@csrf  
-                                        @method('delete')
-                                	    <button class="btn btn-sm btn-danger btn-circle" type="submit"><i class="fas fa-trash"></i></button>
-									</form>  --}}
                                 </td>
                             </tr>
-                        @endforeach
-                    </tbody>
+                            @endforeach
+                        </tbody>
                 </table>
             </div>
         </div>
     </div>
+    
 </div>
- <script>
+<script>
     //harus di tambah i <table class="table" """id="table""">
-$(document).ready( function () {
+    $(document).ready( function () {
     let table = new DataTable('#table', {
-    // options
+    // // modal
+    // const exampleModal = document.getElementById('exampleModal')
+    // exampleModal.addEventListener('show.bs.modal', event => {
+    // // Button that triggered the modal
+    // const button = event.relatedTarget
+    // // Extract info from data-bs-* attributes
+    // const recipient = button.getAttribute('data-bs-whatever')
+    // // If necessary, you could initiate an AJAX request here
+    // // and then do the updating in a callback.
+    // //
+    // // Update the modal's content.
+    // const modalTitle = exampleModal.querySelector('.modal-title')
+    // const modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+    // modalTitle.textContent = `New message to ${recipient}`
+    // modalBodyInput.value = recipient
+    // })
 });
 } );
 </script>
 @endsection
+     {{-- <form action="/dashboard/destroy/{{$item->id}}" method="post">
+         @csrf  
+         @method('delete')
+         <button class="btn btn-sm btn-danger btn-circle" type="submit"><i class="fas fa-trash"></i></button>
+     </form>  --}}

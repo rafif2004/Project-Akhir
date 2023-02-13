@@ -18,18 +18,12 @@ class dashboard_Controller extends Controller
      */
     public function index()
     {
-        $jumlah = bacaan::all()->count();
-        $kelas_siswa=kelas::all();
-        $user = User::all();
         $siswa = siswa::where('id_user', auth()->user()->id)->first();
-        // dd($nama_siswa);
         $baca = bacaan::where('id_kelas', '=', $siswa->id_kelas)->get();
+        $nama = siswa::where('id_kelas', '=', $siswa->id_kelas)->get();
         $baca_siswa = bacaan::where('id_siswa', $siswa->id)->get()->count();
-        $jumlah = bacaan::all();
-        // $baca = bacaan::all(); 
-        // $baca = bacaan::all(); {semua siswa}
         // $baca = bacaan::Where('id_siswa', $siswa->id)->get(); {siswa tertentu / 1 siswa}
-        return view('Master.dashboard.dashboard' , compact('jumlah', 'siswa', 'baca','baca_siswa' ,'kelas_siswa', 'user', 'jumlah'));
+        return view('Master.dashboard.dashboard' , compact('siswa', 'baca', 'nama', 'baca_siswa'));
          
     }
 
@@ -62,8 +56,10 @@ class dashboard_Controller extends Controller
      */
     public function show($id)
     {
-        $bacaan=bacaan::find($id);
-        return view('Master.dashboard.dashboardshow', compact('bacaan'));
+        $siswas = siswa::where('id_user', Auth()->user()->id)->get();
+        $bacaan = bacaan::where('nama_siswa', Auth()->user()->id)->get();
+        // return $siswa;
+        return view('Master.dashboard.dashboardshow', compact('siswas', 'bacaan'));
     }
 
     /**
