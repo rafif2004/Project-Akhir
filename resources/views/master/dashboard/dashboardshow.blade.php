@@ -1,7 +1,7 @@
 @extends('template.admin')
 @section('title', 'Dashboard')
 @section('content-title')
-Profil Bacaan {{ auth()->user()->name }}
+Dashboard Bacaan {{ auth()->user()->name }}
 @endsection
 @section('content')
 @if ($message = Session::get('success'))
@@ -16,17 +16,17 @@ Profil Bacaan {{ auth()->user()->name }}
         <div class="card-header">
             <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-user"> </i> Profil</h6>
         </div>
-            @foreach($siswas as $ok)
+            
             <div class="card-body">
-                <p class="mt-3">Nama Siswa = </p>
-                <p class="mt-3">Kelas = </p>
-                <p class="mt-3">Absen = </p>
-                <p class="mt-3">Poin Bacaan = </p>
+                <p class="mt-3">Nama Siswa = {{ $siswas->nama }}</p>
+                <p class="mt-3">Kelas = {{ $siswas->kelas->kelas }}</p>
+                <p class="mt-3">Absen = {{ $siswas->absen }}</p>
+                <p class="mt-3">Poin Bacaan = {{ $siswas->poin }}</p>
             </div>
-            @endforeach
+        
       </div>
     </div>  
-               @if (auth()->user()->role == 2)
+               {{-- @if (auth()->user()->role == 2) --}}
     <div class="col-lg-8">
         <div class="card shadow mb-4">
         <div class="card-header">
@@ -38,8 +38,8 @@ Profil Bacaan {{ auth()->user()->name }}
                 <tr>
                     <td class="mt-3">No</td>
                     <td class="mt-3">Judul Buku</td>
-                    <td class="mt-3">Penngarang</td>
-                    <td class="mt-3">Create</td>
+                    <td class="mt-3">Pengarang</td>
+                    <td class="mt-3">Tanggal buat</td>
                     <td class="mt-3">Action</td>
                 </tr>
                 @foreach($bacaan as $baca)
@@ -49,12 +49,6 @@ Profil Bacaan {{ auth()->user()->name }}
                         <td class="mt-3">{{ $baca->pengarang }}</td>
                         <td class="mt-3">{{ $baca->tanggal_baca }}</td>
                     <td>
-                    <form action="/profil/{{$baca->id}}" method="post">
-					    @csrf  
-                        @method('delete')
-            	           <button class="btn btn-sm btn-danger btn-circle" type="submit"><i class="fas fa-trash"></i></button>
-                           <a href="{{ route('profil.edit', $baca -> id)}}" class="btn btn-sm btn-warning btn-circle"><i class="fas fa-edit"></i></a>
-                        </form>
                     </td>
                 </tr>
                 @endforeach
@@ -62,6 +56,6 @@ Profil Bacaan {{ auth()->user()->name }}
         </div>
         </div>
     </div>
-    @endif
+    {{-- @endif --}}
 </div>
 @endsection

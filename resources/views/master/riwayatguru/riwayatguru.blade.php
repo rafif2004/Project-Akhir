@@ -1,7 +1,9 @@
 @extends('template.admin')
 @section('title', 'Dashboard')
 @section('content-title')
-Selamat Datang {{ auth()->user()->name }}
+<div class="animate__animated animate__bounceInDown">
+    Selamat Datang {{ auth()->user()->name }}
+</div>
 @endsection
 @section('content')
     @if ($message = Session::get('success'))

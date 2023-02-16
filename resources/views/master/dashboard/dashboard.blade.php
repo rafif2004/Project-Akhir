@@ -1,12 +1,9 @@
 @extends('template.admin')
 @section('title', 'Dashboard')
 @section('content-title')
-@if (auth()->user()->role == 2)
-Profil Siswa 1 Kelas #siswa
-@endif
-@if (auth()->user()->role == 1)
-Profil Siswa 1 Kelas #guru
-@endif
+<div class="animate__animated animate__bounceInDown">
+    Profil Satu Kelas
+</div>
 @endsection
 @section('content')
     @if ($message = Session::get('success'))
@@ -18,7 +15,7 @@ Profil Siswa 1 Kelas #guru
 <div class="row">
                @if (auth()->user()->role == 2)
     <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 mb-4 animate__animated animate__bounce">
+    <div class="col-xl-3 mb-4 animate__animated animate__fadeInDown">
         <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -33,7 +30,7 @@ Profil Siswa 1 Kelas #guru
             </div>
         </div>
     </div>
-    <div class="col-xl-3 mb-4 animate__animated animate__bounce">
+    <div class="col-xl-3 mb-4 animate__animated animate__fadeInDown">
         <div class="card border-left-success shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">

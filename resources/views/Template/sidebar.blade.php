@@ -4,16 +4,16 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-laugh-wink animate__animated animate__fadeInTopLeft"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Literasi</div>
+                <div class="sidebar-brand-text mx-3 animate__animated animate__fadeInTopLeft">Literasi</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
+            <li class="nav-item animate__animated animate__fadeInTopLeft">
                 <a class="nav-link" href="/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
@@ -21,25 +21,31 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             @if (auth()->user()->role == 2)
-            <li class="nav-item">
+            <li class="nav-item animate__animated animate__fadeInTopLeft">
                 <a class="nav-link" href="/baca">
                     <i class="fas fa-fw fa-book"></i>
                 <span>Input Buku</span></a>
             </li>
             @endif
             {{-- @if (auth()->user()->role == 2) --}}
-            <li class="nav-item">
+            <li class="nav-item animate__animated animate__fadeInTopLeft">
                 <a class="nav-link" href="/riwayat">
                     <i class="fas fa-fw fa-address-card"></i>
-                <span>Riwayat Bacaan</span></a>
+                <span>Riwayat</span></a>
             </li>
                 {{-- @endif --}}
 
+            <li class="nav-item animate__animated animate__fadeInTopLeft">
+                <a class="nav-link" href="/point">
+                    <i class="fas fa-fw fa-address-card"></i>
+                <span>Tukar Point</span></a>
+            </li>
+
            @if (auth()->user()->role == 1)
-            <li class="nav-item">
+            <li class="nav-item animate__animated animate__fadeInTopLeft">
                 <a class="nav-link" href="/riwayatguru">
-                    <i class="fas fa-fw fa- address-card"></i>
-                <span>Riwayat Guru</span></a>
+                    <i class="fas fa-fw fa-address-card"></i>
+                <span>Riwayat Kelas</span></a>
             </li>
            @endif
             <!-- Heading -->
@@ -129,7 +135,25 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
+            <style>
+                .box {
+                    width: 150px;
+                    height: 150px;
+                    background-color: white;
+                    position: relative;
+                    animation: mymove 2s infinite;
+                }
 
+                /* Membuat animasi gerakan */
+                @keyframes mymove {
+                    0% {left: 0px;}
+                    50% {left: 790px;}
+                    100% {left: 0px;}
+                }
+            </style>
+            <div class="justify-content: center">
+                <img src="https://wallpapercave.com/dwp2x/wp2036898.jpg" class="img-thumbnail box" alt="...">
+            </div>
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>

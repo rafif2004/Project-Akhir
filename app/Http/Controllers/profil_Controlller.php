@@ -18,7 +18,7 @@ class profil_Controlller extends Controller
      */
     public function index()
     {
-        $siswa = siswa::where('id_user', Auth()->user()->id)->get();
+        $siswa = siswa::where('id_user', Auth()->user()->id)->first();
         $bacaan = bacaan::where('nama_siswa', Auth()->user()->id)->get();
         // return $siswa;
         return view('master.profil', compact('siswa', 'bacaan'));

@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\bacaan;
 use App\Models\kelas;
 use App\Models\siswa;
+use App\Models\wali_kelas;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,13 @@ class dashboard_Controller extends Controller
      */
     public function index()
     {
-        $siswa = siswa::where('id_user', auth()->user()->id)->first();
+        if (auth()->user()->role == 1){
+            $siswa = wali_kelas::where('id_user', auth()->user()->id)->first();
+        } else if (auth()->user()->role == 2){
+            $siswa = siswa::where('id_user', auth()->user()->id)->first();
+        }
+        
+
         $baca = bacaan::where('id_kelas', '=', $siswa->id_kelas)->get();
         $nama = siswa::where('id_kelas', '=', $siswa->id_kelas)->get();
         $baca_siswa = bacaan::where('id_siswa', $siswa->id)->get()->count();
@@ -56,8 +63,8 @@ class dashboard_Controller extends Controller
      */
     public function show($id)
     {
-        $siswas = siswa::where('id_user', Auth()->user()->id)->get();
-        $bacaan = bacaan::where('nama_siswa', Auth()->user()->id)->get();
+        $siswas = siswa::find($id);
+        $bacaan = bacaan::where('id_siswa', $siswas->id)->get();
         // return $siswa;
         return view('Master.dashboard.dashboardshow', compact('siswas', 'bacaan'));
     }

@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\kelas;
-use App\Models\siswa;
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\siswa;
+use App\Models\bacaan;
 
-class register_Controller extends Controller
+class tambahpoint_Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,12 @@ class register_Controller extends Controller
      */
     public function index()
     {
+        $jumlah = bacaan::all()->count();
+        $siswa = siswa::all();
         
+        // dd(auth()->user()->id);
+        $baca = bacaan::all(); 
+        return view('master.tukerpoint', compact('jumlah', 'siswa', 'baca'));
     }
 
     /**
@@ -26,8 +30,7 @@ class register_Controller extends Controller
      */
     public function create()
     {
-        $kelas = kelas::all();
-        return view('Login.register', compact('kelas'));
+        //
     }
 
     /**
@@ -38,26 +41,9 @@ class register_Controller extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|unique:users',
-            'kelas' => 'required',
-            'absen' => 'required',
-            'password' => 'required',
-        ],);
+        // bacaan::create([
 
-        $user = User::create(request(['name', 'email', 'password']));
-        
-        siswa::create([
-            'id_user' => $user->id,
-            'nama' => $request->name,
-            'email' => $request->email,
-            'absen' => $request->absen,
-            'id_kelas' => $request->kelas,
-            'password' => $request->password
-        ]);
-
-        return redirect()->to('/')->with(['register_succes' => $user->email]);
+        // ]);
     }
 
     /**

@@ -1,7 +1,9 @@
 @extends('template.admin')
 @section('title', 'Dashboard')
 @section('content-title')
-Profil Bacaan {{ auth()->user()->name }}
+<div class="animate__animated animate__bounceInDown">
+    Profil Bacaan {{ auth()->user()->name }}
+</div>
 @endsection
 @section('content')
 @if ($message = Session::get('success'))
@@ -11,7 +13,7 @@ Profil Bacaan {{ auth()->user()->name }}
     </div>
     @endif
 <div class="row">
-    <div class="col-lg-4">
+    <div class="col-lg-4 animate__animated animate__fadeInDownBig">
         <div class="card shadow mb-4">
         <div class="card-header">
             <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-user"> </i> Profil</h6>
@@ -27,19 +29,19 @@ Profil Bacaan {{ auth()->user()->name }}
             @endforeach
                 @endif  
                 @if (auth()->user()->role == 2)
-            @foreach($siswa as $ok)
+            
             <div class="card-body">
-                <p class="mt-3">Nama Siswa = {{ $ok->nama }}</p>
-                <p class="mt-3">Kelas = {{ $ok->kelas->kelas }}</p>
-                <p class="mt-3">Absen = {{ $ok->absen }}</p>
-                <p class="mt-3">Poin Bacaan = {{ $ok->poin }}</p>
+                <p class="mt-3">Nama Siswa = {{ $siswa->nama }}</p>
+                <p class="mt-3">Kelas = {{ $siswa->kelas->kelas }}</p>
+                <p class="mt-3">Absen = {{ $siswa->absen }}</p>
+                <p class="mt-3">Poin Bacaan = {{ $siswa->poin }}</p>
             </div>
-            @endforeach
+            
             @endif
       </div>
     </div>  
                @if (auth()->user()->role == 2)
-    <div class="col-lg-8">
+    <div class="col-lg-8 animate__animated animate__fadeInDownBig">
         <div class="card shadow mb-4">
         <div class="card-header">
             
@@ -50,7 +52,7 @@ Profil Bacaan {{ auth()->user()->name }}
                 <tr>
                     <td class="mt-3">No</td>
                     <td class="mt-3">Judul Buku</td>
-                    <td class="mt-3">Penngarang</td>
+                    <td class="mt-3">Pengarang</td>
                     <td class="mt-3">Create</td>
                     <td class="mt-3">Action</td>
                 </tr>

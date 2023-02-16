@@ -1,9 +1,11 @@
 @extends('template.admin')
 @section('title', 'Baca')
 @section('content-title')
-<h2>Silakan Input Bacaan
-    {{ auth()->user()->name }}
-</h2><br>
+<div class="animate__animated animate__bounceInDown">   
+    <h2>Silakan Input Bacaan
+        {{ auth()->user()->name }}
+    </h2>
+</div>
 @endsection
 {{-- Validasi Kalau Pesan Telah Terkirim --}}
 @section('content')

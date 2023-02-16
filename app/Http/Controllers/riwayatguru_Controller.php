@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\bacaan;
 use App\Models\kelas;
 use App\Models\siswa;
+use App\Models\wali_kelas;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class riwayatguru_Controller extends Controller
         $jumlah = bacaan::all()->count();
         $kelas_siswa=kelas::all();
         $user = User::all();
-        $siswa = siswa::where('id_user', auth()->user()->id)->first();
+        $siswa = wali_kelas::where('id_user', auth()->user()->id)->first();
         // dd($nama_siswa);
         $baca = bacaan::where('id_kelas', '=', $siswa->id_kelas)->get();
         // $baca = bacaan::all(); 

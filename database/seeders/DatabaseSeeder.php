@@ -15,6 +15,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        \App\Models\kelas::create([
+            'kelas' => '12 RPL 2',
+        ]);
+
+        \App\Models\kelas::create([
+            'kelas' => '12 RPL 1',
+        ]);
 
         \App\Models\User::create([
             'name' => 'siswa',
@@ -30,19 +37,12 @@ class DatabaseSeeder extends Seeder
         'role' => '1',
         ]);
 
-        \App\Models\kelas::create([
-            'kelas' => '12 RPL 2',
-        ]);
-
-        \App\Models\kelas::create([
-            'kelas' => '12 RPL 1',
-        ]);
 
         \App\Models\siswa::create([
             'nama' => 'rafif',
             'absen' => '22',
             'poin' => '90',
-            'id_user' => '2',
+            'id_user' => '1',
             'id_kelas' => '1'
             ]);
 

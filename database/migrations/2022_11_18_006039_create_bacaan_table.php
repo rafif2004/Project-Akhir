@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('penerbit');
             $table->string('ringkasan');
             $table->date('tanggal_baca');
+            $table->integer('poin_baca')->default('0');
             $table->bigInteger('id_siswa')->unsigned();
             $table->foreign('id_siswa')->references('id')->on('siswa')
                 ->onDelete('cascade')
@@ -33,6 +34,7 @@ return new class extends Migration
         });
     }
 
+    
     /**
      * Reverse the migrations.
      *
